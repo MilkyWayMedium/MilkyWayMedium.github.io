@@ -50,6 +50,7 @@
 	<script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+	import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -69,10 +70,9 @@
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
   const analytics = getAnalytics(app);
-</script>
-
-    <script>
+  
       document.addEventListener('DOMContentLoaded', function() {
         const loadEl = document.querySelector('#load');
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -93,15 +93,15 @@
         try {
           let app = firebase.app();
           let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
+            //'auth', 
+            'database'//, 
+            //'firestore',
+            //'functions',
+            //'messaging', 
+            //'storage', 
+            //'analytics', 
+            //'remoteConfig',
+            //'performance',
           ].filter(feature => typeof app[feature] === 'function');
           loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
         } catch (e) {
