@@ -48,6 +48,18 @@
     <p id="load">Firebase SDK Loading&hellip;</p>
 	
 	<script type="module">
+	const appl = express();
+const port = process.env.SERVER_PORT || 8000;
+
+// Add Access Control Allow Origin headers
+appl.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", *);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://milkywaymedium.web.app/__/firebasejs/9.6.6/firebase-app.js";
 	import { getDatabase } from "https://milkywaymedium.web.app/__/firebasejs/9.6.6/firebase-database.js";
