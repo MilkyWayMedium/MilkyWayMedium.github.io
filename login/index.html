@@ -10,10 +10,11 @@
 	<meta name="keywords" content="" />
 	
 	<!-- Base stylesheet for all pages -->
-	<link rel="stylesheet" type="text/css" href="../index.css" />
+	<link rel="stylesheet" type="text/css" href="../components/stylesheets/index.css" />
+	<link rel="stylesheet" href="../components/stylesheets/checkboxes.css"/>
 	
 	<!-- Site logo browser icon (.ico) -->
-	<link rel="icon" href="../images/favicon.ico">
+	<link rel="icon" href="../components/images/favicon.ico">
 	
 </head>
 
@@ -25,8 +26,8 @@
 	
 		<!-- Left portion of navigation (logo and site title) -->
 		<a href="../">
-			<img src="../images/small.png">
-			<div class="navBarInnerLeft"><div id="small">MILKY WAY<br></div>MEDIUM</div>
+			<img src="../components/images/small.png">
+			<div class="navBarInnerLeft"><div id="small">MILKY<span style="letter-spacing: 1px;"> </span>WAY<br></div>MEDIUM</div>
 		</a>
 		
 		<!-- Right portion of navigation (page links) -->
@@ -41,8 +42,9 @@
 	
 	<script type="module">
 		// Import the functions you need from the SDKs you need
-		import { initializeApp } from "https://milkywaymedium.web.app/firebase/app";
-		import { getAnalytics } from "https://milkywaymedium.web.app/firebase/analytics";
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+		import { } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+		import { } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 		// TODO: Add SDKs for Firebase products that you want to use
 		// https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -61,7 +63,6 @@
 
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
-		const analytics = getAnalytics(app);
 	</script>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -71,21 +72,33 @@
 	<div class="container" id="container">
 		<div class="block-content">
 			
-			<form action="/action_page.php" method="post">
+			<form id="login-form" method="post">
 
 				<!-- Username section -->
-				<label for="uname"><b style="color: #fff">Email or Username</b></label>
+				<label for="uname"><b style="color: #020011; font-size: 17px;">Email or Username</b></label>
 				<input type="text" placeholder="Enter your email or username..." name="uname" required>
 				<br><br>
 
 				<!-- Email address section -->
-				<label for="email"><b style="color: #fff">Password</b></label>
+				<label for="email"><b style="color: #020011; font-size: 17px;">Password</b></label>
 				<input type="password" placeholder="Enter your password..." name="email" required>
+				<br><br>
+				
+				<div style="width: 100%; display: inline-block; float: right;">
+					<span style="float: left;">
+						<a style="font-size: 15px; color: #B79500;" href="forgot/">I forgot my login information...</a>
+					</span>
+					<span style="float: right;">
+						<input type="checkbox" id="checkbox2" class="css-checkbox" />
+						<label for="checkbox2" name="checkbox2_lbl" class="css-label chrome-style" style="color: #020011; margin-top: -4px;">Remember Me</label>
+					</span>
+				</div>
 				<br><br>
 				
 				<!-- Continue creating a new account button -->
 				<button class="button-login" style="width: 100%; height: 55px;" type="submit">LOGIN</button>
 				<br>
+				
 				<!--
 					<label>
 					  <input type="checkbox" checked="checked" name="remember"> Remember Me

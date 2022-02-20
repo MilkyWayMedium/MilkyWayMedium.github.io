@@ -10,10 +10,10 @@
 	<meta name="keywords" content="" />
 	
 	<!-- Base stylesheet for all pages -->
-	<link rel="stylesheet" type="text/css" href="../index.css" />
+	<link rel="stylesheet" type="text/css" href="../components/stylesheets/index.css" />
 	
 	<!-- Site logo browser icon (.ico) -->
-	<link rel="icon" href="../images/favicon.ico">
+	<link rel="icon" href="../components/images/favicon.ico">
 	
 </head>
 
@@ -25,7 +25,7 @@
 	
 		<!-- Left portion of navigation (logo and site title) -->
 		<a href="../">
-			<img src="../images/small.png">
+			<img src="../components/images/small.png">
 			<div class="navBarInnerLeft"><div id="small">MILKY WAY<br></div>MEDIUM</div>
 		</a>
 		
@@ -41,8 +41,9 @@
 	
 	<script type="module">
 		// Import the functions you need from the SDKs you need
-		import { initializeApp } from "https://milkywaymedium.web.app/firebase/app";
-		import { getAnalytics } from "https://milkywaymedium.web.app/firebase/analytics";
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+		import { } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+		import { } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 		// TODO: Add SDKs for Firebase products that you want to use
 		// https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -61,7 +62,6 @@
 
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
-		const analytics = getAnalytics(app);
 	</script>
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -74,27 +74,25 @@
 			<h2 class="title">CREATE A NEW ACCOUNT</h2>
 			<br>
 			
-			<form action="/action_page.php" method="post">
-
-				<!-- Username section -->
-				<label for="uname"><b style="color: #fff">Username</b></label>
-				<input type="text" placeholder="Enter a unique username..." name="uname" required>
-				<br><br>
+			<form id="register-form" method="post">
 
 				<!-- Email address section -->
-				<label for="email"><b style="color: #fff">Email Address</b></label>
-				<input type="text" placeholder="Enter a valid email address..." name="email" required>
+				<label for="email"><b style="color: #020011; font-size: 17px;">Email Address</b></label>
+				<br>
+				<span class="caption">Please enter a valid email address...</span>
+				<input type="text" placeholder="Example: Scooter@gmail.com" name="email" required>
+				<br><br>
+				
+				<!-- Username section -->
+				<label for="uname"><b style="color: #020011; font-size: 17px;">Username</b></label>
+				<br>
+				<span class="caption">Please enter a unique username...</span>
+				<input type="text" placeholder="Example: Scooter" name="uname" required>
 				<br><br>
 				
 				<!-- Continue creating a new account button -->
 				<button class="button-login" style="width: 100%; height: 55px;" type="submit">CONTINUE</button>
 				<br>
-				<!--
-					<label>
-					  <input type="checkbox" checked="checked" name="remember"> Remember Me
-					</label>  
-					<span class="psw">Forgot <a href="#">password?</a></span>
-				-->
 				
 			</form>
 			
