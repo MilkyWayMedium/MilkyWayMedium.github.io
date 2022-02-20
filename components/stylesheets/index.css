@@ -236,7 +236,6 @@ a:visited {
 /* Block post body text */
 .text {
 	color: color: #020011;
-	letter-spacing: -1px;
 	margin: 20px 0;
 }
 
