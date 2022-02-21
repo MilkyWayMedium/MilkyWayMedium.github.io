@@ -32,7 +32,7 @@ require(['firebase'], function (firebase) {
 
 					// Initialize Firebase
 					const app = firebase.initializeApp(firebaseConfig);
-					//const autho = firebase.auth;
+					const auth = firebase.auth;
 					//const db = firebase.default.firestore;
 
 			function passCreds() {
