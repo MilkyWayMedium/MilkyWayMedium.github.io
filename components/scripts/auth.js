@@ -1,10 +1,11 @@
 const registerForm = document.querySelector('#register-form');
-
+const continueButton = document.getElementById("continueButton");
 var email = "";
 var username ="";
 var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;
 
 function passCreds() {
+	console.log("Passing credentials...");
 	email = document.getElementById("email").value;
 	username = document.getElementById("username").value;
 		
@@ -41,6 +42,10 @@ function passCreds() {
 	}
 }
 
+continueButton.addEventListener('click', (e) => {
+	passCreds();
+	});
+
 registerForm.addEventListener('submit', (e) => {
 	// TODO: Add SDKs for Firebase products that you want to use
 	// https://firebase.google.com/docs/web/setup#available-libraries
@@ -71,4 +76,4 @@ registerForm.addEventListener('submit', (e) => {
 	auth.createUserWithEmailAndPassword(email, password).then(cred => {
 	console.log(cred);
 	});
-})
+});
