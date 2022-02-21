@@ -1,3 +1,9 @@
+import * as firebase from 'https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js'
+import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js'
+import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js'
+
+//export { db, auth }
+
 const registerForm = document.querySelector('#register-form');
 const continueButton = document.getElementById("continueButton");
 var email = "";
@@ -7,7 +13,7 @@ var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;
 const firebaseConfig = {
 		  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
 		  authDomain: "milkywaymedium.firebaseapp.com",
-		  databaseURL: "https://milkywaymedium-default-rtdb.firebaseio.com",
+		  databaseURL: "https://milkywaymedium.firebaseio.com",
 		  projectId: "milkywaymedium",
 		  storageBucket: "milkywaymedium.appspot.com",
 		  messagingSenderId: "165659589186",
@@ -16,9 +22,9 @@ const firebaseConfig = {
 		};
 
 		// Initialize Firebase
-		const app = initializeApp(firebaseConfig);
-		const auth = getAuth(app);
-		const db = getFirestore(app);
+		const app = firebase.initializeApp(firebaseConfig);
+		const auth = firebase.auth();
+		const db = firebase.firestore();
 
 function passCreds() {
 	console.log("Passing credentials...");
