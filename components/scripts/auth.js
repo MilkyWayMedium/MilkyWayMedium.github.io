@@ -3,9 +3,16 @@
 //import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js'
 //import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js'
 
-require(['https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js'], function (firebase) {
-	require(['https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js'], function (auth) {
-		require(['https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js'], function (firestore) {
+//Rather, do this:
+require.config({
+    paths: {
+        'firebase': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-app',
+        'auth': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-auth',
+        'firestore': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore'
+    }
+});
+
+require(['firebase', 'auth'], function (firebase, auth) {
 			const registerForm = document.querySelector('#register-form');
 			const continueButton = document.getElementById("continueButton");
 			var email = "";
@@ -25,8 +32,8 @@ require(['https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js'], function 
 
 					// Initialize Firebase
 					const app = firebase.initializeApp(firebaseConfig);
-					const auth = firebase.auth();
-					const db = firebase.firestore();
+					const autho = firebase.default.auth;
+					const db = firebase.default.firestore;
 
 			function passCreds() {
 				console.log("Passing credentials...");
@@ -84,5 +91,3 @@ require(['https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js'], function 
 				});
 			});
 		});
-	});
-});
