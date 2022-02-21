@@ -1,4 +1,4 @@
-import * as firebase from 'https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js'
+const firebase = require('firebase/app').default;
 import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js'
 import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js'
 
@@ -22,7 +22,7 @@ const firebaseConfig = {
 		};
 
 		// Initialize Firebase
-		const app = firebase.default.initializeApp(firebaseConfig);
+		const app = firebase.initializeApp(firebaseConfig);
 		const auth = firebase.auth();
 		const db = firebase.firestore();
 
