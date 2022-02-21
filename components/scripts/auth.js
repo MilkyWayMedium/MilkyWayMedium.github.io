@@ -4,38 +4,6 @@ var email = "";
 var username ="";
 var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;
 
-registerForm.addEventListener('submit', (e) => {
-	// TODO: Add SDKs for Firebase products that you want to use
-	// https://firebase.google.com/docs/web/setup#available-libraries
-
-	// Your web app's Firebase configuration
-	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-	const firebaseConfig = {
-	  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
-	  authDomain: "milkywaymedium.firebaseapp.com",
-	  databaseURL: "https://milkywaymedium-default-rtdb.firebaseio.com",
-	  projectId: "milkywaymedium",
-	  storageBucket: "milkywaymedium.appspot.com",
-	  messagingSenderId: "165659589186",
-	  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
-	  measurementId: "G-WGKXQT89RQ"
-	};
-
-	// Initialize Firebase
-	const app = initializeApp(firebaseConfig);
-	const auth = getAuth(app);
-	const db = getFirestore(app);
-	
-	// Create account
-	e.preventDefault();
-	const password = registerForm['password'].value;
-	const confirmPassword = registerForm['confirmPassword'].value;
-	console.log(email, username, password, confirmPassword);
-	auth.createUserWithEmailAndPassword(email, password).then(cred => {
-	console.log(cred);
-	});
-})
-
 function passCredentials() {
 	email = document.getElementById("email").value;
 	username = document.getElementById("username").value;
@@ -73,7 +41,34 @@ function passCredentials() {
 	}
 }
 
-function createAccount() {
+registerForm.addEventListener('submit', (e) => {
+	// TODO: Add SDKs for Firebase products that you want to use
+	// https://firebase.google.com/docs/web/setup#available-libraries
 
+	// Your web app's Firebase configuration
+	// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	const firebaseConfig = {
+	  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
+	  authDomain: "milkywaymedium.firebaseapp.com",
+	  databaseURL: "https://milkywaymedium-default-rtdb.firebaseio.com",
+	  projectId: "milkywaymedium",
+	  storageBucket: "milkywaymedium.appspot.com",
+	  messagingSenderId: "165659589186",
+	  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
+	  measurementId: "G-WGKXQT89RQ"
+	};
+
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+	const auth = getAuth(app);
+	const db = getFirestore(app);
 	
-}
+	// Create account
+	e.preventDefault();
+	const password = registerForm['password'].value;
+	const confirmPassword = registerForm['confirmPassword'].value;
+	console.log(email, username, password, confirmPassword);
+	auth.createUserWithEmailAndPassword(email, password).then(cred => {
+	console.log(cred);
+	});
+})
