@@ -18,6 +18,8 @@ function passCreds() {
 		username.length > 2 &&
 		username.match(alphaNumeric)) {
 			
+			console.log("Requirements met...");
+			
 			const labelEmail = document.getElementById("label-email");
 			const labelUsername = document.getElementById("label-username");
 			const captionEmail = document.getElementById("caption-email");
@@ -33,10 +35,11 @@ function passCreds() {
 			box1.innerHTML = `<input type="password" placeholder="Example: Andr0meda" id="password" name="password" required>`;
 			box2.innerHTML = `<input type="password" placeholder="Example: Andromed@" id="confirmPassword" name="confirmPassword" required>`;
 			button1.innerHTML = `<button class="button-login" style="width: 100%; height: 55px;" type="submit">CONTINUE</button>`;
-			
+			console.log("Credentials passed...");
 	}
 	
 	else {
+		console.log("Your credentials do not meet the standards.");
 		email = "";
 		username ="";
 	}
