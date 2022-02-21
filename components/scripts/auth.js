@@ -4,6 +4,22 @@ var email = "";
 var username ="";
 var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;
 
+const firebaseConfig = {
+		  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
+		  authDomain: "milkywaymedium.firebaseapp.com",
+		  databaseURL: "https://milkywaymedium-default-rtdb.firebaseio.com",
+		  projectId: "milkywaymedium",
+		  storageBucket: "milkywaymedium.appspot.com",
+		  messagingSenderId: "165659589186",
+		  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
+		  measurementId: "G-WGKXQT89RQ"
+		};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const auth = getAuth(app);
+		const db = getFirestore(app);
+
 function passCreds() {
 	console.log("Passing credentials...");
 	email = document.getElementById("email").value;
@@ -55,7 +71,7 @@ registerForm.addEventListener('submit', (e) => {
 	const password = registerForm['password'].value;
 	const confirmPassword = registerForm['confirmPassword'].value;
 	console.log(email, username, password, confirmPassword);
-	auth().createUserWithEmailAndPassword(email, password).then(cred => {
+	auth.createUserWithEmailAndPassword(email, password).then(cred => {
 	console.log(cred);
 	});
 });
