@@ -4,9 +4,9 @@ import * as firebase from 'https://www.gstatic.com/firebasejs/8.10.1/firebase-ap
 //import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js'
 
 //Rather, do this:
-require.config({
-    paths: {
-        'firebase': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-app',
+//require.config({
+  //  paths: {
+     //   'firebase': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-app',
         //'auth': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-auth',
         //'firestore': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore'
     }
@@ -32,8 +32,8 @@ require.config({
 
 					// Initialize Firebase
 					const app = firebase.initializeApp(firebaseConfig);
-					const autho = firebase.default.auth;
-					const db = firebase.default.firestore;
+					//const autho = firebase.auth;
+					//const db = firebase.default.firestore;
 
 			function passCreds() {
 				console.log("Passing credentials...");
