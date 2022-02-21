@@ -7,17 +7,13 @@ function displayContent() {
 	postElement.classList.add('block-content');
 	
 	postElement.innerHTML = `
-		<h2 class="title">Welcome to the Milky Way Medium</h2>
 		<p class="text">
 				Set the vibe in a flash.
 				<br><br>
-				
 				This site is currently under construction.
 				<br><br>
 				
 				Created by Hunter Cook and Garrett Haines.
-				<br>
-				A division of Cook Labs.
 		</p>
 		
 	`;

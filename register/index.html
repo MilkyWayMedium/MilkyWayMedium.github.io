@@ -26,7 +26,7 @@
 		<!-- Left portion of navigation (logo and site title) -->
 		<a href="../">
 			<img src="../components/images/small.png">
-			<div class="navBarInnerLeft"><div id="small">MILKY WAY<br></div>MEDIUM</div>
+			<div class="navBarInnerLeft"><div id="small">MILKY<span style="letter-spacing: 1px;"> </span>WAY<br></div>MEDIUM</div>
 		</a>
 		
 		<!-- Right portion of navigation (page links) -->
@@ -42,8 +42,8 @@
 	<script type="module">
 		// Import the functions you need from the SDKs you need
 		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
-		import { } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
-		import { } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
+		import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+		import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 		// TODO: Add SDKs for Firebase products that you want to use
 		// https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -62,10 +62,9 @@
 
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
+		const auth = getAuth(app);
+		const db = getFirestore(app);
 	</script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	
 	
 	<!-- Block feed -->
 	<div class="container" id="container">
@@ -74,27 +73,38 @@
 			<h2 class="title">CREATE A NEW ACCOUNT</h2>
 			<br>
 			
-			<form id="register-form" method="post">
+			<form id="register-form">
 
 				<!-- Email address section -->
-				<label for="email"><b style="color: #020011; font-size: 17px;">Email Address</b></label>
+				<label id="label-email" for="email"><b>Email Address</b></label>
 				<br>
-				<span class="caption">Please enter a valid email address...</span>
-				<input type="text" placeholder="Example: Scooter@gmail.com" name="email" required>
-				<br><br>
+				<span id="caption-email" class="caption">Please enter a valid email address...</span>
+				
+				<div id="box1">
+					<input type="text" placeholder="Example: Scooter@gmail.com" id="email" name="email" required>
+				</div>
+				<br>
 				
 				<!-- Username section -->
-				<label for="uname"><b style="color: #020011; font-size: 17px;">Username</b></label>
+				<label id="label-username" for="username"><b>Username</b></label>
 				<br>
-				<span class="caption">Please enter a unique username...</span>
-				<input type="text" placeholder="Example: Scooter" name="uname" required>
-				<br><br>
+				<span id="caption-username" class="caption">Please enter a unique username...</span>
+				
+				<div id="box2">
+					<input type="text" placeholder="Example: Scooter" id="username" name="username" required>
+				</div>
+				<br>
 				
 				<!-- Continue creating a new account button -->
-				<button class="button-login" style="width: 100%; height: 55px;" type="submit">CONTINUE</button>
+				<span id="button1">
+					<button class="button-login" style="width: 100%; height: 55px;" type="button" onclick="passCredentials()">CONTINUE</button>
+				</span>
 				<br>
 				
 			</form>
+			
+			<script src="../components/scripts/auth.js" type="module"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 			
 		</div>
 	</div>

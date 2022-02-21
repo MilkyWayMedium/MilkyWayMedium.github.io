@@ -337,6 +337,17 @@ input[type=text], input[type=password] {
 	opacity: 0.5;
 }
 
+#label-email {
+	color: #020011;
+	font-size: 17px;
+}
+
+#label-username {
+	color: #020011;
+	font-size: 17px;
+}
+
+
 .tooltip {
   position: relative;
   display: inline-block;
