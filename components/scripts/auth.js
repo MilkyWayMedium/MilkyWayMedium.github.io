@@ -5,9 +5,6 @@ var username ="";
 var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;
 
 registerForm.addEventListener('submit', (e) => {
-	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
-	import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
-	import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore.js";
 	// TODO: Add SDKs for Firebase products that you want to use
 	// https://firebase.google.com/docs/web/setup#available-libraries
 
