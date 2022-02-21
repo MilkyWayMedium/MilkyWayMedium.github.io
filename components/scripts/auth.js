@@ -55,7 +55,7 @@ registerForm.addEventListener('submit', (e) => {
 	const password = registerForm['password'].value;
 	const confirmPassword = registerForm['confirmPassword'].value;
 	console.log(email, username, password, confirmPassword);
-	auth.createUserWithEmailAndPassword(email, password).then(cred => {
+	auth().createUserWithEmailAndPassword(email, password).then(cred => {
 	console.log(cred);
 	});
 });
