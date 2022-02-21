@@ -1,4 +1,4 @@
-//import * as firebase from 'https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js'
+import * as firebase from 'https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js'
 //const firebase = require('https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js');
 //import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js'
 //import 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js'
@@ -7,12 +7,12 @@
 require.config({
     paths: {
         'firebase': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-app',
-        'auth': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-auth',
-        'firestore': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore'
+        //'auth': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-auth',
+        //'firestore': 'https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore'
     }
 });
 
-require(['firebase', 'auth'], function (firebase, auth) {
+//require(['firebase', 'auth'], function (firebase, auth) {
 			const registerForm = document.querySelector('#register-form');
 			const continueButton = document.getElementById("continueButton");
 			var email = "";
@@ -90,4 +90,4 @@ require(['firebase', 'auth'], function (firebase, auth) {
 				console.log(cred);
 				});
 			});
-		});
+		//});

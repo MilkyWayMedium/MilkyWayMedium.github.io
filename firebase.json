@@ -6,11 +6,19 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "headers": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "https://milkywaymedium.com"
+          }
+        ]
       }
     ]
+  },
+  "functions": {
+    "source": "functions"
   }
 }
