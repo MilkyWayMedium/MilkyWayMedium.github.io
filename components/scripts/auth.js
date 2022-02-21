@@ -12,7 +12,7 @@ require.config({
     }
 });
 
-require(['firebase', 'auth'], function (firebase, auth) {
+require(['firebase'], function (firebase) {
 			const registerForm = document.querySelector('#register-form');
 			const continueButton = document.getElementById("continueButton");
 			var email = "";
