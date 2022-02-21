@@ -4,7 +4,7 @@ var email = "";
 var username ="";
 var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;
 
-function passCredentials() {
+function passCreds() {
 	email = document.getElementById("email").value;
 	username = document.getElementById("username").value;
 		
