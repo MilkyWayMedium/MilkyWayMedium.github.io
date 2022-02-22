@@ -30,13 +30,9 @@ require(['firebase'], function (firebase) {
 								  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
 								  measurementId: "G-WGKXQT89RQ"
 									};
-
-					// Initialize Firebase
-					
-					//const autho = auth.getAuth(app);
-					//const autho = firebase.getAuth();
-					//const autho = firebase.auth();
-					//const db = firebase.default.firestore;
+									
+								const app = firebase.initializeApp(firebaseConfig);
+								const autho = auth.initializeAuth(app);
 
 					function passCreds() {
 						console.log("Passing credentials...");
@@ -91,6 +87,7 @@ require(['firebase'], function (firebase) {
 				console.log(email, username, password, confirmPassword);
 				
 				const app = firebase.initializeApp(firebaseConfig);
+				app.auth();
 				const autho = auth.getAuth(app);
 				
 				createUserWithEmailAndPassword(auth, email, password)
@@ -104,23 +101,6 @@ require(['firebase'], function (firebase) {
 					const errorMessage = error.message;
 					// ..
 				  });
-				
-				//autho.createUserWithEmailAndPassword(email, password).then(cred => {
-				//console.log(cred);
-				//});
-				
-				//autho.createUserWithEmailAndPassword(email, password)
-				//  .then((userCredential) => {
-				//	// Signed in 
-				//	var user = userCredential.user;
-				//	console.log(userCredential);
-				//	// ...
-				 // })
-				 // .catch((error) => {
-				//	var errorCode = error.code;
-				//	var errorMessage = error.message;
-					// ..
-				//  });
 			});
 	});			
 });
