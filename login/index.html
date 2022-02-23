@@ -124,7 +124,7 @@
 				const logout = document.getElementById("logout");
 				logout.addEventListener('click', (e) => {
 					e.preventDefault();
-					signOut().then(() => {
+					signOut(auth).then(() => {
 						console.log('Signed out.');
 					});
 				})
