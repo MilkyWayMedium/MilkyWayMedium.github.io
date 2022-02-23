@@ -31,8 +31,9 @@
 		
 		<!-- Right portion of navigation (page links) -->
 		<div class="navBarInnerRight">
-			<a href="../login/">LOGIN</a>
-			<a style="opacity: 0.4" href="../register">CREATE &nbsp;ACCOUNT</a>
+			<a id="logout" href=".">LOGOUT</a>
+			<a id="login" href="../login/">LOGIN</a>
+			<a id="register" style="opacity: 0.4" href="../register">CREATE &nbsp;ACCOUNT</a>
 			<a href="../about/">ABOUT</a>
 		</div>
 		
@@ -155,7 +156,6 @@
 						e.preventDefault();
 						var password = registerForm['password'].value;
 						var confirmPassword = registerForm['confirmPassword'].value;
-						registerForm.reset();
 						
 						if(password == confirmPassword &&
 						   password.length) {
@@ -183,6 +183,14 @@
 							confirmPassword = "";
 						 }
 					});
+					
+					const logout = document.getElementById("logout");
+					logout.addEventListener('click', (e) => {
+						e.preventDefault();
+						signOut().then(() => {
+							console.log('Signed out.');
+						});
+					})
 			</script>
 			
 		</div>
