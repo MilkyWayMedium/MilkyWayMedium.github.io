@@ -102,9 +102,9 @@
 				console.log(app, auth);
 				
 				
-				onAuthStateChanged(auth).then(user => {
-					console.log(user);
-				})
+				auth.onAuthStateChanged(user => {
+						console.log(user);
+				});
 				
 				
 				const loginForm = document.querySelector('#login-form');
@@ -124,7 +124,7 @@
 						password = "";
 					})
 		
-				})
+				});
 				
 				// Logout
 				const logout = document.getElementById("logout");
@@ -133,7 +133,7 @@
 					signOut(auth).then(() => {
 						console.log('Signed out.');
 					});
-				})
+				});
 					
 			</script>
 	
