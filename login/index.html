@@ -102,7 +102,7 @@
 				console.log(app, auth);
 				
 				
-				onAuthStateChanged(user => {
+				onAuthStateChanged(auth).then(user => {
 					console.log(user);
 				})
 				
