@@ -155,6 +155,7 @@
 						e.preventDefault();
 						var password = registerForm['password'].value;
 						var confirmPassword = registerForm['confirmPassword'].value;
+						registerForm.reset();
 						
 						if(password == confirmPassword &&
 						   password.length) {
@@ -182,10 +183,7 @@
 							confirmPassword = "";
 						 }
 					});
-				
 			</script>
-			
-			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 			
 		</div>
 	</div>
