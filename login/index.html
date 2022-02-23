@@ -112,7 +112,7 @@
 					var identification = loginForm['identification'].value;
 					var password = loginForm['password'].value;
 					
-					signInWithEmailAndPassword(email, password).then((cred => {
+					signInWithEmailAndPassword(email, password).then(cred => {
 						console.log(cred.user);
 						identification = "";
 						password = "";
