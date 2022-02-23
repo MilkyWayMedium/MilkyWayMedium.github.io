@@ -32,7 +32,7 @@
 		
 		<!-- Right portion of navigation (page links) -->
 		<div class="navBarInnerRight">
-			<a id="logout" href=".">LOGIN</a>
+			<a id="logout" href=".">LOGOUT</a>
 			<a style="opacity: 0.4" id="login" href="../login/">LOGIN</a>
 			<a id="register" href="../register">CREATE &nbsp;ACCOUNT</a>
 			<a href="../about/">ABOUT</a>
@@ -112,7 +112,7 @@
 					var identification = loginForm['identification'].value;
 					var password = loginForm['password'].value;
 					
-					signInWithEmailAndPassword(email, password).then(cred => {
+					signInWithEmailAndPassword(identification, password).then(cred => {
 						console.log(cred.user);
 						identification = "";
 						password = "";
