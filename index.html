@@ -40,45 +40,30 @@
 	<br><br><br><br><br><br>
 	
 	<script type="module">
-				  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js'
-				  // Add Firebase products that you want to use
-				  import { initializeAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js'
-				  
-				  const firebaseConfig = {
-				  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
-				  authDomain: "milkywaymedium.firebaseapp.com",
-				  databaseURL: "https://milkywaymedium.firebaseio.com",
-				  projectId: "milkywaymedium",
-				  storageBucket: "milkywaymedium.appspot.com",
-				  messagingSenderId: "165659589186",
-				  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
-				  measurementId: "G-WGKXQT89RQ",
-				};
+	import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
-				// Initialize Firebase
-				const app = initializeApp(firebaseConfig);
-				const auth = initializeAuth(app);
-				
-				
-				console.log(app, auth);
-				
-				onAuthStateChanged(auth, function(user) {
-						if(user) {
-							console.log('User logged in: ', user);
-							const navRight = document.getElementById('navRight');
-							navRight.innerHTML = `<a id="logout" href=".">LOGOUT</a><a href="../about/">ABOUT</a>`;
-							// Logout
-							const logout = document.getElementById("logout");
-							logout.addEventListener('click', (e) => {
-								e.preventDefault();
-								console.log('User logged out');
-								signOut(auth).then();
-							});
-						}
-						else {
-							console.log('User not logged in');
-						}
-				});
+	const auth = getAuth();
+	onAuthStateChanged(auth, (user) => {
+	  if (user) {
+		// User is signed in, see docs for a list of available properties
+		// https://firebase.google.com/docs/reference/js/firebase.User
+		const uid = user.uid;
+		console.log('User logged in: ', user);
+		const navRight = document.getElementById('navRight');
+		navRight.innerHTML = `<a id="logout" href=".">LOGOUT</a><a href="../about/">ABOUT</a>`;
+		
+		// Logout
+		const logout = document.getElementById("logout");
+		logout.addEventListener('click', (e) => {
+		e.preventDefault();
+		console.log('User logged out');
+		signOut(auth).then();
+	  }
+	  else {
+		console.log('User not logged in');
+	  }
+	});
+		
 	</script>
 	
 	
