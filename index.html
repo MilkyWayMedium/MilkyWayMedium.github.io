@@ -42,7 +42,7 @@
 	<script type="module">
 				  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js'
 				  // Add Firebase products that you want to use
-				  import { initializeAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged, setPersistence, browserLocalPersistence, indexedDBLocalPersistence } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js'
+				  import { initializeAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js'
 				  
 				  const firebaseConfig = {
 				  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
@@ -53,7 +53,6 @@
 				  messagingSenderId: "165659589186",
 				  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
 				  measurementId: "G-WGKXQT89RQ",
-				  persistence: browserLocalPersistence
 				};
 
 				// Initialize Firebase
