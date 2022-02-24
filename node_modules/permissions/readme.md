@@ -1,0 +1,51 @@
+# Home
+## About
+Permissions is about making managing user permissions easier. You can create your own permissions, roles, users and more are soon to come! Permissions is an easy way to see what user's have access to. You could use integrate this with any NodeJS application! Permissions is also made to be as simple as possible. Check out the [examples](http://permissions.js.org/examples.md)! 
+
+## Installation
+
+Installation is easy!
+
+`$ npm i permissions`
+
+I don't think you needed me for that, though.
+
+## Configuration
+At the moment you can't configure anything, but it will come soon!
+
+## Usage
+For advanced usage please visit our [documentation](http://permissions.js.org/docs/latest/get_started.md). The following is just fo r quick reference.
+### Declaring Permissions Requirement
+```js
+const permissions = require('permissions');
+```
+### Adding Permissions
+```js
+const permissionsToAdd = ["a", "b"];
+const permissionsFile = 'permissions.json';
+permissions.savePermissions(permissionsToAdd, permissionsFile);
+```
+### Adding Users
+```js
+/*
+    DO NOT CONFUSE .newUser(); and new User(); THE LATTER WILL CAUSE ERRORS!!
+*/
+let userID = "7818"; //id MUST be a string!!
+let usersFile = './users.json';
+let permissions = ["a", "b"]; //in this case a single * permission will work
+let roles = []; //roles are coming soon!!
+permissions.newUser(userID, usersFile, permissions, roles);
+```
+### Loading Permissions/Users
+```js
+/*
+    LOADING PERMISSIONS AND USERS IS CRUCIAL
+*/
+permissions.loadPermissions(permissionsFile);
+permissions.loadUsers(usersFile);
+```
+### Check for Users Permission to Do X
+```js
+    // make sure users are loaded!!
+    can = permissions.hasPermission(userID, 'a')) //returns true
+```

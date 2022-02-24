@@ -1,0 +1,65 @@
+const fs = require('fs');
+const invFile = new Error('Invalid file type!');
+let logInfo = false;
+let pFile; //defines permissions file
+let uFile; //defines users file
+String.prototype.isJSON = function(file) { //checks if string is json
+    return file.match(".*.json$");
+};
+function log(data) { //checks if logging is on, returns if not, logs if true
+    if (!logInfo) return;
+    else console.log(data);
+};
+exports.version = "0.1.0"; 
+exports.loadPermissions = function(file) { //load permissions for later use
+    if (!file.isJSON) throw invFile;
+    pFile = file;
+    log(`Permissions file set to ${file}.`)
+};
+exports.loadUsers = function(file) { //loads users for later use
+    if (!file.isJSON) throw invFile;
+    uFile = file;
+    log(`Users file set to ${file}.`)
+}
+exports.logger = function(logs) { //log debug info? if true, logs debug info
+    logInfo = logs;
+    log("Details for 'permissions' will now be logged!");
+};
+exports.savePermissions = function(perms, location) {
+    /* Creates an empty array, pushes the permissions specified to it,
+        parses the json file, adds the permissions key if it
+        doesn't have, add the permissions to the array in
+        the json file, rewrites it with old data and new data
+    */
+   if (!location.isJSON) throw invFile;
+    let permissions = [];
+    perms.forEach(function(item) {
+        log(`Pushing permission ${item}`);
+        permissions.push(item);
+    });
+    let file = JSON.parse(location);
+    if(!file.hasOwnProperty('permissions')) file.permissions = [];
+    file.permissions = file.permissions.concat(permissions);
+    fs.writeFileSync(location, file);
+    log(`Permissions saved to ${location}!`);
+};
+exports.newUser = function(id, location, perms, roles) { // parse JSON file, see if user exists, adds user if not, throws error if true
+    if (!location.isJSON) throw invFile;
+    let file = JSON.parse(location);
+    if(file.hasOwnProperty(id)) throw new Error(`User with id: ${id} already exists!`);
+    file[id] = {'permissions': perms, 'roles': roles};
+    log(`User with id: ${id} created!`)
+};
+exports.deleteUser = function(id, location) { //parses JSON file, see if user exists, throws error if not, deletes if true
+    if (!location.isJSON) throw invFile
+    let file = JSON.parse(location);
+    if(!file.hasOwnProperty(id)) throw new Error(`User with id: ${id} does not exist!`);
+    delete file[id];
+    log(`User with id ${id} deleted!`);
+};
+exports.hasPermission = function(id, permission) { //see if a user has a permission
+    let userFile = JSON.parse(uFile);
+    let userp = userFile[id][permissions];
+    if(userp.includes(permission) || userp.includes('*')) return true;
+    else return false;
+};
