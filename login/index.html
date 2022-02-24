@@ -110,12 +110,16 @@
 					e.preventDefault();
 					var identification = loginForm['identification'].value;
 					var password = loginForm['password'].value;
+					var loggedIn = false;
 					
 					signInWithEmailAndPassword(auth, identification, password).then(cred => {
 						identification = "";
 						password = "";
-						location.href = 'https://milkywaymedium.com/';
+						loggedIn = true;
 					})
+					
+					if(loggedIn)
+						location.href = 'https://milkywaymedium.com/';
 		
 				});
 					
