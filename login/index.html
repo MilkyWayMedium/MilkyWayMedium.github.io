@@ -107,19 +107,26 @@
 				
 				// Login
 				loginForm.addEventListener('submit', (e) => {
+					console.log(1);
 					e.preventDefault();
 					var identification = loginForm['identification'].value;
 					var password = loginForm['password'].value;
 					var loggedIn = false;
+					console.log(2);
 					
 					signInWithEmailAndPassword(auth, identification, password).then(cred => {
 						identification = "";
 						password = "";
 						loggedIn = true;
-					})
+						console.log(3);
+					});
 					
-					if(loggedIn)
+					if(loggedIn) {
 						location.href = 'https://milkywaymedium.com/';
+						console.log(4);
+					}
+					
+					console.log(5);
 		
 				});
 					
