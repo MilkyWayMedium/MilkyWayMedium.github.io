@@ -134,10 +134,10 @@
 					var loggedIn = false;
 					console.log(2);
 					
-					setPersistence(auth, indexedDBLocalPersistence);
+					setPersistence(auth, browserLocalPersistence);
 					
 					
-					setPersistence(auth, indexedDBLocalPersistence)
+					setPersistence(auth, browserLocalPersistence)
 					  .then(() => {
 						// Existing and future Auth states are now persisted in the current
 						// session only. Closing the window would clear any existing state even
