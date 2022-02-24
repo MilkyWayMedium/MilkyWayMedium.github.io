@@ -62,6 +62,9 @@
 
 				console.log(app, auth);
 				
+				auth.persistence = browserLocalPersistence;
+				app.persistence = browserLocalPersistence;
+				
 				//setPersistence(auth, 'LOCAL');
 				
 				auth.onAuthStateChanged(user => {

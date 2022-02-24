@@ -92,12 +92,15 @@
 				  messagingSenderId: "165659589186",
 				  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
 				  measurementId: "G-WGKXQT89RQ",
-				  persistence: 'LOCAL'
+				  persistence: browserLocalPersistence
 				};
 
 				// Initialize Firebase
 				const app = initializeApp(firebaseConfig);
 				const auth = initializeAuth(app);
+				
+				auth.persistence = browserLocalPersistence;
+				app.persistence = browserLocalPersistence;
 				
 				console.log(app, auth);
 				
@@ -135,10 +138,10 @@
 					var loggedIn = false;
 					console.log(2);
 					
-					//setPersistence(auth, 'LOCAL');
+					//setPersistence(auth, browserLocalPersistence);
 					
 					
-					//setPersistence(auth, 'LOCAL')
+					//setPersistence(auth, browserLocalPersistence)
 					//  .then(() => {
 						// Existing and future Auth states are now persisted in the current
 						// session only. Closing the window would clear any existing state even
