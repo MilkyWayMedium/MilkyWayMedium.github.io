@@ -81,7 +81,7 @@
 	<script type="module">
 				  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js'
 				  // Add Firebase products that you want to use
-				  import { initializeAuth, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, browserLocalPersistence, indexedDBLocalPersistence } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js'
+				  import { initializeAuth, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, browserLocalPersistence, indexedDBLocalPersistence, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js'
 				  
 				  const firebaseConfig = {
 				  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
@@ -99,13 +99,9 @@
 				const app = initializeApp(firebaseConfig);
 				const auth = initializeAuth(app);
 				
-				auth.persistence = browserLocalPersistence;
-				app.persistence = browserLocalPersistence;
-				
 				console.log(app, auth);
-				const user = auth.currentUser;
 				
-			//	auth.onAuthStateChanged(user => {
+				onAuthStateChanged(user => {
 						if(user) {
 							console.log('User logged in: ', user);
 							const navRight = document.getElementById('navRight');
@@ -121,7 +117,7 @@
 						else {
 							console.log('User not logged in');
 						}
-				//});
+				});
 				
 				
 				const loginForm = document.querySelector('#login-form');
@@ -138,46 +134,19 @@
 					var loggedIn = false;
 					console.log(2);
 					
-					//setPersistence(auth, browserLocalPersistence);
 					
+					signInWithEmailAndPassword(auth, identification, password).then(cred => {
+						identification = "";
+						password = "";
+						loggedIn = true;
+						console.log(3);
+						console.log(cred.user);
+					});
 					
-					setPersistence(auth, browserLocalPersistence)
-					 .then(() => {
-						// Existing and future Auth states are now persisted in the current
-						// session only. Closing the window would clear any existing state even
-						// if a user forgets to sign out.
-						// ...
-						// New sign-in will be persisted with session persistence.
-						return signInWithEmailAndPassword(auth, identification, password);
-					  })
-					  .catch((error) => {
-						// Handle Errors here.
-						const errorCode = error.code;
-						const errorMessage = error.message;
-						console.log(errorCode);
-						console.log(errorMessage);
-					  });
-					  
-					  
-					  
-						
-					
-					
-					
-					
-					
-				//	signInWithEmailAndPassword(auth, identification, password).then(cred => {
-			//			identification = "";
-			//			password = "";
-		//				loggedIn = true;
-		//				console.log(3);
-		//			console.log(cred.user);
-		//			});
-					
-		//			if(loggedIn) {
+					if(loggedIn) {
 						//location.href = 'https://milkywaymedium.com/';
-		//				console.log(4);
-		//			}
+						console.log(4);
+					}
 					
 					console.log(5);
 		
