@@ -27,12 +27,11 @@
 		<!-- Left portion of navigation (logo and site title) -->
 		<a href="../">
 			<img src="../components/images/animated.gif">
-			<div class="navBarInnerLeft"><div id="small">MILKY<span style="letter-spacing: 1px;"> </span>WAY<br></div>MEDIUM</div>
+			<div class="navBarInnerLeft"><div id="small">MIL<span style="letter-spacing: 2px;">KY</span><span style="letter-spacing: 1px;"> </span><span style="letter-spacing: -4px;">WAY</span><br></div>MEDIUM</div>
 		</a>
 		
 		<!-- Right portion of navigation (page links) -->
-		<div class="navBarInnerRight">
-			<a id="logout" href=".">LOGOUT</a>
+		<div id="navRight" class="navBarInnerRight">
 			<a style="opacity: 0.4" id="login" href="../login/">LOGIN</a>
 			<a id="register" href="../register">CREATE &nbsp;ACCOUNT</a>
 			<a href="../about/">ABOUT</a>
@@ -60,11 +59,11 @@
 				
 				<div style="width: 100%; display: inline-block; float: right;">
 					<span style="float: left;">
-						<a style="font-size: 15px; color: #B79500;" href="forgot/">I forgot my login information...</a>
-					</span>
-					<span style="float: right;">
 						<input type="checkbox" id="checkbox2" class="css-checkbox" />
 						<label for="checkbox2" name="checkbox2_lbl" class="css-label chrome-style" style="color: #020011; margin-top: -4px;">Remember Me</label>
+					</span>
+					<span style="float: right; margin-top: -3px;">
+						<a style="font-size: 15px; color: #B79500;" href="forgot/">I forgot my login information...</a>
 					</span>
 				</div>
 				<br><br>
@@ -101,12 +100,6 @@
 
 				console.log(app, auth);
 				
-				
-				auth.onAuthStateChanged(user => {
-						console.log(user);
-				});
-				
-				
 				const loginForm = document.querySelector('#login-form');
 				const loginButton = document.getElementById("login-button");
 				var identification = "";
@@ -119,20 +112,11 @@
 					var password = loginForm['password'].value;
 					
 					signInWithEmailAndPassword(auth, identification, password).then(cred => {
-						console.log(cred.user);
 						identification = "";
 						password = "";
+						location.href = 'https://milkywaymedium.com/';
 					})
 		
-				});
-				
-				// Logout
-				const logout = document.getElementById("logout");
-				logout.addEventListener('click', (e) => {
-					e.preventDefault();
-					signOut(auth).then(() => {
-						console.log('Signed out.');
-					});
 				});
 					
 			</script>

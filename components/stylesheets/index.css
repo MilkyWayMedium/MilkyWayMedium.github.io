@@ -112,7 +112,7 @@ a:visited {
 	color: #020011;
 	letter-spacing: -1px;
 	text-align: center;
-	padding: 24px 0px 24px 10px;
+	padding: 25px 0px 24px 8px;
 	position: relative;
 	vertical-align: middle;
 	font-weight: bold;
@@ -139,7 +139,7 @@ a:visited {
 	float: left;
 	display: block;
 	text-align: center;
-	padding: 18px 14px 20px 24px;
+	padding: 18px 14px 20px 26px;
 	position: relative;
 	vertical-align: middle;
 	z-index: 222222;
@@ -151,7 +151,7 @@ a:visited {
 	display: block;
 	color: #020011;
 	text-align: center;
-	padding: 20px 0px 0px 20px;
+	padding: 30px 0px 0px 20px;
 	position: relative;
 	vertical-align: middle;
 	font-weight: bold;
@@ -187,8 +187,8 @@ a:visited {
 
 /* Styling for small 'THE' in navigation logo */
 #small {
-	font-size: 35.65px;
-	margin-bottom: -10px;
+	font-size: 36px;
+	margin-bottom: -14px;
 	font-weight: bold;
 }
 
