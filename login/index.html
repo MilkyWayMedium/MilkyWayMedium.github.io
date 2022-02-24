@@ -101,7 +101,7 @@
 				
 				console.log(app, auth);
 				
-				onAuthStateChanged(user => {
+				onAuthStateChanged(auth, (user) => {
 						if(user) {
 							console.log('User logged in: ', user);
 							const navRight = document.getElementById('navRight');
