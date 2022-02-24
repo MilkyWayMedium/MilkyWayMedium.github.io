@@ -81,7 +81,7 @@
 	<script type="module">
 				  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js'
 				  // Add Firebase products that you want to use
-				  import { initializeAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js'
+				  import { initializeAuth, signInWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js'
 				  
 				  const firebaseConfig = {
 				  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
@@ -97,6 +97,21 @@
 				// Initialize Firebase
 				const app = initializeApp(firebaseConfig);
 				const auth = initializeAuth(app);
+				
+				setPersistence(auth, browserSessionPersistence)
+				  .then(() => {
+					// Existing and future Auth states are now persisted in the current
+					// session only. Closing the window would clear any existing state even
+					// if a user forgets to sign out.
+					// ...
+					// New sign-in will be persisted with session persistence.
+					return signInWithEmailAndPassword(auth, email, password);
+				  })
+				  .catch((error) => {
+					// Handle Errors here.
+					const errorCode = error.code;
+					const errorMessage = error.message;
+				  });
 
 				console.log(app, auth);
 				
