@@ -40,7 +40,7 @@
 	<br><br><br><br><br><br>
 	
 	<script type="module">
-	import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+	import { getAuth, onAuthStateChanged, signOut } from "functions/node_modules/firebase/auth";
 
 	const auth = getAuth();
 	onAuthStateChanged(auth, (user) => {
