@@ -60,14 +60,17 @@
 				const app = initializeApp(firebaseConfig);
 				const auth = initializeAuth(app);
 
-				console.log(app, auth);
 				
 				auth.persistence = browserLocalPersistence;
 				app.persistence = browserLocalPersistence;
 				
+				
+				console.log(app, auth);
+				const user = auth.currentUser;
+				
 				//setPersistence(auth, 'LOCAL');
 				
-				auth.onAuthStateChanged(user => {
+				//auth.onAuthStateChanged(user => {
 						if(user) {
 							console.log('User logged in: ', user);
 							const navRight = document.getElementById('navRight');
@@ -83,7 +86,7 @@
 						else {
 							console.log('User not logged in');
 						}
-				});
+				//});
 	</script>
 	
 	

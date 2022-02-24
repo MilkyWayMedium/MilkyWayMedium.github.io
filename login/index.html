@@ -103,9 +103,9 @@
 				app.persistence = browserLocalPersistence;
 				
 				console.log(app, auth);
+				const user = auth.currentUser;
 				
-				
-				auth.onAuthStateChanged(user => {
+			//	auth.onAuthStateChanged(user => {
 						if(user) {
 							console.log('User logged in: ', user);
 							const navRight = document.getElementById('navRight');
@@ -121,7 +121,7 @@
 						else {
 							console.log('User not logged in');
 						}
-				});
+				//});
 				
 				
 				const loginForm = document.querySelector('#login-form');
