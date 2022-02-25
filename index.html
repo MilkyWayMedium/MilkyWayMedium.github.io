@@ -49,7 +49,7 @@
 	</script>
 	
 	<script type="module">
-	import { getAuth, onAuthStateChanged, signOut } from "/functions/node_modules/firebase/auth";
+	import { getAuth, onAuthStateChanged, signOut } from "/functions/node_modules/firebase/auth/package.json";
 
 	const auth = getAuth();
 	onAuthStateChanged(auth, (user) => {
