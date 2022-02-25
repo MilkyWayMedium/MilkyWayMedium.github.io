@@ -44,12 +44,12 @@
 	
 	<script>
 	$(document).ready(function() {
-		alert("hello world");
+		console.log("hello world");
 	})
 	</script>
 	
 	<script type="module">
-	import { getAuth, onAuthStateChanged, signOut } from "functions/node_modules/firebase/auth";
+	import { getAuth, onAuthStateChanged, signOut } from "/functions/node_modules/firebase/auth";
 
 	const auth = getAuth();
 	onAuthStateChanged(auth, (user) => {
@@ -83,8 +83,6 @@
 		<script src="components/scripts/post.js"></script>
 		
 	</div>
-	
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	
 	
 </body>
