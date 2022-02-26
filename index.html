@@ -66,16 +66,16 @@
 
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
-		const auth = getAuth(auth => {
-			var user = auth.currentUser;
-			if(user != null) {
-				console.log(user);
-			}
-			else {
-				console.log("Signed out");
-			}
-		});
-		onAuthStateChanged(auth, (user) => {
+		const auth = getAuth;
+		var user = auth.currentUser;
+		if(user != null) {
+			console.log(user);
+		}
+		else {
+			console.log("Signed out");
+		}
+		
+		//onAuthStateChanged(auth, (user) => {
 			if (user) {
 				// User is signed in, see docs for a list of available properties
 				// https://firebase.google.com/docs/reference/js/firebase.User
@@ -95,7 +95,7 @@
 			else {
 				console.log('User not logged in');
 			}
-		});
+		//});
 		
 	</script>
 	
