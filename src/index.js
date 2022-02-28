@@ -158,7 +158,6 @@ try {
 			  .then((userCredential) => {
 				// Signed in 
 				console.log("Account created.");
-				const user = userCredential.user;
 				const navRight = document.getElementById("navRight");
 				navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
 				
