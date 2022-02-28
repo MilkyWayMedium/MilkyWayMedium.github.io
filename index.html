@@ -15,12 +15,7 @@
 	<!-- Site logo browser icon (.ico) -->
 	<link rel="icon" href="components/images/favicon.ico">
 	
-	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-	<!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
-	
 </head>
-
-<script src="components/dist/bundle.js"></script>
 
 <body>
 	<!-- Navigation bar -->
@@ -41,71 +36,17 @@
 		
 	</div>
 	<br><br><br><br><br><br>
-	
-	<script>
-	$(document).ready(function() {
-		console.log("hello world");
-	})
-	</script>
-	
-	<script type="module">
-	import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js'
-	import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
-	
-	   
-	  const firebaseConfig = {
-	  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
-	  authDomain: "milkywaymedium.firebaseapp.com",
-	  databaseURL: "https://milkywaymedium.firebaseio.com",
-	  projectId: "milkywaymedium",
-	  storageBucket: "milkywaymedium.appspot.com",
-	  messagingSenderId: "165659589186",
-	  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
-	  measurementId: "G-WGKXQT89RQ",
-	};
 
-		// Initialize Firebase
-		const app = initializeApp(firebaseConfig);
-		const auth = getAuth;
-		var user = auth.currentUser;
-		if(user != null) {
-			console.log(user);
-		}
-		else {
-			console.log("Signed out");
-		}
-		
-		//onAuthStateChanged(auth, (user) => {
-			if (user) {
-				// User is signed in, see docs for a list of available properties
-				// https://firebase.google.com/docs/reference/js/firebase.User
-				const uid = user.uid;
-				console.log('User logged in: ', user);
-				const navRight = document.getElementById('navRight');
-				navRight.innerHTML = `<a id="logout" href=".">LOGOUT</a><a href="../about/">ABOUT</a>`;
-				
-				// Logout
-				const logout = document.getElementById("logout");
-				logout.addEventListener('click', (e) => {
-					e.preventDefault();
-					console.log('User logged out');
-					signOut(auth).then();
-				});
-			}
-			else {
-				console.log('User not logged in');
-			}
-		//});
-		
-	</script>
 	
 	
 	<!-- Block feed -->
 	<div class="container" id="container">
 	
-		<script src="components/scripts/post.js"></script>
+		<script src="src/post.js"></script>
 		
 	</div>
+	
+	<script src="dist/bundle.js"></script>
 	
 	
 </body>
