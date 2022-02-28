@@ -158,10 +158,15 @@ try {
 			  .then((userCredential) => {
 				// Signed in 
 				console.log("Account created.");
-				const navRight = document.getElementById("navRight");
+				const navRight1 = document.getElementById("navRight");
 				console.log("Navigation bar element grabbed.");
-				navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
-				console.log("Element modified.");
+				try {
+					navRight1.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
+					console.log("Element modified.");
+				}
+				catch {
+					console.log("Element unmodified.");
+				}
 				
 				const logout = document.getElementById("logout");
 				logout.addEventListener('click', (e) => {
