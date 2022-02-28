@@ -1,5 +1,5 @@
 {
-  "name": "milkywaymedium.github.io",
+  "name": "milkywaymedium.com",
   "version": "1.0.0",
   "description": "v1.00 release coming soon (2022). A song recommendation platform that creates playlists using Spotify API.",
   "main": "index.js",
@@ -132,5 +132,5 @@
   "bugs": {
     "url": "https://github.com/MilkyWayMedium/MilkyWayMedium.github.io/issues"
   },
-  "homepage": "https://github.com/MilkyWayMedium/MilkyWayMedium.github.io#readme"
+  "homepage": "https://milkywaymedium.com"
 }
