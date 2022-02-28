@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import {
-	getAuth, signInWithEmailAndPassword
+	getAuth, onAuthStateChanged, signInWithEmailAndPassword
 } from 'firebase/auth'
 import {
 	getFirestore, collection, getDocs
@@ -22,18 +22,23 @@ initializeApp(firebaseConfig);
 
 // Initialize Auth
 const auth = getAuth();
-const user = auth.currentUser;
 
-if(user) {
-	console.log(user);
-}
-else {
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+	console.log(user, uid);
+  } else {
+    // User is signed out
+    // ...
 	console.log("Not signed in. Attempting to sign in.")
 	signInWithEmailAndPassword(auth, 'garrettmhainesspam@gmail.com', 'asdfasdf').then(cred => {
 		console.log(cred.user);
 		console.log("Signed in.");
 	});
-}
+  }
+});
 
 // Initialize Firestore
 const db = getFirestore();
