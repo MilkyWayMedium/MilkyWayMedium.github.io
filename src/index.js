@@ -55,12 +55,17 @@ try {
 		var identification = loginForm['identification'].value
 		var password = loginForm['password'].value;
 		
-		signInWithEmailAndPassword(auth, identification, password).then()
-		  .catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			success = false;
-		  });
+		signInWithEmailAndPassword(auth, identification, password)
+			.then((userCredential) => {
+				// Signed in 
+				const user = userCredential.user;
+				location.href = '../';
+			  })
+			  .catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				success = false;
+			  });		
 
 		if(success) {
 			console.log("Logged in...");
