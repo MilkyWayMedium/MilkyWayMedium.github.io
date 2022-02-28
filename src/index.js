@@ -159,7 +159,9 @@ try {
 				// Signed in 
 				console.log("Account created.");
 				const navRight = document.getElementById("navRight");
+				console.log("Navigation bar element grabbed.");
 				navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
+				console.log("Element modified.");
 				
 				const logout = document.getElementById("logout");
 				logout.addEventListener('click', (e) => {
@@ -190,7 +192,9 @@ try {
 		 }
 	});
 }
-catch { }
+catch {
+	console.log("Error.");
+}
 
 
 /***************** Firestore Methods *****************/
