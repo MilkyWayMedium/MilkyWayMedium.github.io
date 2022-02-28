@@ -20,14 +20,18 @@ const firebaseConfig = {
   appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
 };
 
-// Initialize Auth
-const auth = getAuth();
-
-// Initialize Firebase
+// Initialize Firebase App
 initializeApp(firebaseConfig);
 
+// Initialize Firebase Auth
+const auth = getAuth();
 
-/***************** Firebase Auth Methods *****************/
+// Initialize Firebase Firestore
+const db = getFirestore();
+
+
+
+/***************** Auth Methods *****************/
 onAuthStateChanged(auth, (user) => {									// Check user login status
   if (user) {
     // User is signed in, see docs for a list of available properties
@@ -41,34 +45,39 @@ onAuthStateChanged(auth, (user) => {									// Check user login status
 });
 
 
-function login() {
-	const loginForm = document.querySelector("#login-form");
+try {
+  	const loginForm = document.querySelector("#login-form");
 	const loginButton = document.getElementById("login-button");
-	var identification = "";
-	var password = "";
 	
-	identification = loginForm['identification'].value;
-	password = loginForm['password'].value;
-	var loggedIn = false;
+	loginForm.addEventListener('submit', (e) => {
+		e.preventDefault();
+		var loggedIn = false;
+		var identification = loginForm['identification'].value
+		var password = loginForm['password'].value;
+		
+		signInWithEmailAndPassword(auth, identification, password).then(cred => {
+			identification = "";
+			password = "";
+			loggedIn = true;
+			console.log(cred.user);
+		})
+		  .catch((error) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+		  });
 
-	signInWithEmailAndPassword(auth, identification, password).then(cred => {
-		identification = "";
-		password = "";
-		loggedIn = true;
-		console.log(cred.user);
+		if(loggedIn) {
+			location.href = 'https://milkywaymedium.com/';
+		}
 	})
-	  .catch((error) => {
-		const errorCode = error.code;
-		const errorMessage = error.message;
-	  });
 
-	if(loggedIn) {
-		location.href = 'https://milkywaymedium.com/';
-	}
+
+}
+catch {
 }
 
+
 /***************** Firestore Methods *****************/
-const db = getFirestore();
 //const colRef = collection(db, 'books')
 //getDocs(colRef)
 //	.then((snapshot) => {
