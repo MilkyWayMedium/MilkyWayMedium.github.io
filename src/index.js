@@ -21,11 +21,24 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 // Initialize Auth
+const auth = getAuth();
+const user = auth.currentUser;
+
+if(user) {
+	console.log(user);
+}
+else {
+	console.log("Not signed in. Attempting to sign in.")
+	signInWithEmailAndPassword(auth, 'garrettmhainesspam@gmail.com', 'asdfasdf').then(cred => {
+		console.log(cred.user);
+		console.log("Signed in.");
+	});
+}
 
 // Initialize Firestore
-const db = getFirestore()
-const colRef = collection(db, 'books')
-getDocs(colRef)
-	.then((snapshot) => {
-		console.log(snapshot.docs)
-	})
+const db = getFirestore();
+//const colRef = collection(db, 'books')
+//getDocs(colRef)
+//	.then((snapshot) => {
+//		console.log(snapshot.docs)
+//	})
