@@ -88,6 +88,7 @@
     "selenium-webdriver": "^4.0.0-rc-1",
     "semver": "^6.3.0",
     "set-immediate-shim": "^1.0.1",
+    "source-map-loader": "^3.0.1",
     "string_decoder": "^1.1.1",
     "string-width": "^4.2.3",
     "strip-ansi": "^6.0.1",
@@ -114,7 +115,8 @@
   },
   "devDependencies": {
     "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "source-map-loader": "^3.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
