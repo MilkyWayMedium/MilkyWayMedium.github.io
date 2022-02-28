@@ -46,7 +46,7 @@ onAuthStateChanged(auth, (user) => {
 		const navRight = document.getElementById("navRight");
 		navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://github.com/MilkyWayMedium/MilkyWayMedium.github.io/releases">ABOUT</a><a href="https://milkywaymedium.com/user" style="opacity:.5">MY ACCOUNT</a>`;
 		
-		userContent.innerHTML = `<h2 class="title">MY ACCOUNT</h2><h4 class="text" style="text-align: center;">You are currently signed in.<br>Medium is currently studying the position of the stars. Please check back later for additional features.</h4>`;
+		userContent.innerHTML = `<h2 class="title">MY ACCOUNT</h2><h4 class="text" style="text-align: center;">You are currently signed in.<br><br>Medium is currently studying the position of the stars.<br>Please check back later for additional features.</h4>`;
 		
 		const logout = document.getElementById("logout");
 		logout.addEventListener('click', (e) => {
@@ -178,7 +178,7 @@ try {
 		console.log("Registration form submitted.");
 		
 		if(password == confirmPassword &&
-		   password.length) {
+		   password.length > 7) {
 			   
 			   console.log("Your passwords match.");
 		
