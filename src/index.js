@@ -36,8 +36,6 @@ onAuthStateChanged(auth, (user) => {									// Check user login status
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-	console.log(user, uid);
 	try {
 		const navRight = document.getElementById("navRight");
 		navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
@@ -50,6 +48,9 @@ onAuthStateChanged(auth, (user) => {									// Check user login status
 				navRight.innerHTML = `<a href="login/">LOG IN</a><a href="register/">CREATE &nbsp;ACCOUNT</a><a href="about/">ABOUT</a>`;
 			});
 		});
+		
+		const uid = user.uid;
+		console.log(user, uid);
 	}
 	catch { }
   } else {
