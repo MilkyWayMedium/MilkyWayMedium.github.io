@@ -177,7 +177,7 @@ catch { }
 
 
 /***************** Firestore Methods *****************/
-const querySnapshot = await getDocs(collection(db, "songs"));
+//const querySnapshot = await getDocs(collection(db, "songs"));
 
 //try {
 //	querySnapshot.forEach((doc) => {
