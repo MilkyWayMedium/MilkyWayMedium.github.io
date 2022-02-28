@@ -155,6 +155,18 @@ try {
 			  .then((userCredential) => {
 				// Signed in 
 				const user = userCredential.user;
+				const navRight = document.getElementById("navRight");
+				navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
+				
+				const logout = document.getElementById("logout");
+				logout.addEventListener('click', (e) => {
+					e.preventDefault();
+					signOut(auth).then(() => {
+						console.log('You have signed out.');
+						location.href="../";
+					});
+				});
+				
 				const blockContent = document.getElementById("blockContent");
 				blockContent.innerHTML =
 				`<h2 class="title">WELCOME</h2>
