@@ -54,6 +54,7 @@ onAuthStateChanged(auth, (user) => {
 			signOut(auth).then(() => {
 				console.log('You have signed out.');
 				navRight.innerHTML = `<a href="https://milkywaymedium.com/login/">LOG IN</a><a href="https://milkywaymedium.com/register/">CREATE &nbsp;ACCOUNT</a><a href="about/">ABOUT</a>`;
+				location.href = 'https://milkywaymedium.com/';
 			});
 		});
 		
