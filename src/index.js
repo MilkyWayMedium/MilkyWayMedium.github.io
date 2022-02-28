@@ -158,31 +158,7 @@ try {
 			  .then((userCredential) => {
 				// Signed in 
 				console.log("Account created.");
-				const navRight1 = document.getElementById("navRight");
-				console.log("Navigation bar element grabbed.");
-				try {
-					navRight1.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
-					console.log("Element modified.");
-				}
-				catch {
-					console.log("Element unmodified.");
-				}
-				
-				const logout = document.getElementById("logout");
-				logout.addEventListener('click', (e) => {
-					e.preventDefault();
-					signOut(auth).then(() => {
-						console.log('You have signed out.');
-						location.href="../";
-					});
-				});
-				
-				const blockContent = document.getElementById("blockContent");
-				blockContent.innerHTML =
-				`<h2 class="title">WELCOME</h2>
-				<br>
-				<h4 class="text" style="text-align: center;">Congratulations, ` + username + `!<br>Your account was created successfully.</h4>
-				`
+				location.href = '../user/';
 			  })
 			  .catch((error) => {
 				const errorCode = error.code;
