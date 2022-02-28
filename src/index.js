@@ -67,6 +67,7 @@ try {
 		  });
 
 		if(loggedIn) {
+			console.log("Logged in...");
 			location.href = 'https://milkywaymedium.com/';
 		}
 	})
