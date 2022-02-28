@@ -178,7 +178,13 @@ catch { }
 
 /***************** Firestore Methods *****************/
 const querySnapshot = await getDocs(collection(db, "songs"));
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-});
+
+try {
+	querySnapshot.forEach((doc) => {
+	  // doc.data() is never undefined for query doc snapshots
+	  console.log(doc.id, " => ", doc.data());
+	});
+}
+catch {
+	console.log("Missing or insufficient permissions.");
+}
