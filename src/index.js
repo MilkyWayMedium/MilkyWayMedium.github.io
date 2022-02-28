@@ -6,7 +6,7 @@ import {
 	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
 } 	from 'firebase/auth';
 import {
-	getFirestore, collection, getDocs
+	getFirestore, collection, getDocs, query, where
 } 	from 'firebase/firestore';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -173,14 +173,12 @@ try {
 		 }
 	});
 }
-catch {
-	console.log("Error.");
-}
+catch { }
 
 
 /***************** Firestore Methods *****************/
-//const colRef = collection(db, 'books')
-//getDocs(colRef)
-//	.then((snapshot) => {
-//		console.log(snapshot.docs)
-//	})
+const querySnapshot = await getDocs(collection(db, "songs"));
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
