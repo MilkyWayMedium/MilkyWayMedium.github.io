@@ -51,22 +51,18 @@ try {
 	
 	loginForm.addEventListener('submit', (e) => {
 		e.preventDefault();
-		var loggedIn = false;
+		var success = true;
 		var identification = loginForm['identification'].value
 		var password = loginForm['password'].value;
 		
-		signInWithEmailAndPassword(auth, identification, password).then(cred => {
-			identification = "";
-			password = "";
-			loggedIn = true;
-			console.log(cred.user);
-		})
+		signInWithEmailAndPassword(auth, identification, password).then()
 		  .catch((error) => {
 			const errorCode = error.code;
 			const errorMessage = error.message;
+			success = false;
 		  });
 
-		if(loggedIn) {
+		if(success) {
 			console.log("Logged in...");
 			location.href = 'https://milkywaymedium.com/';
 		}
