@@ -83,7 +83,7 @@ try {
 			  });		
 
 		if(success) {
-			console.log("Logged in...");
+			console.log("You have logged in successfully.");
 		}
 	})
 
@@ -99,7 +99,7 @@ try {
 	var alphaNumeric = /^([0-9]|[a-z])+([0-9a-z]+)$/i;
 	
 	function passCreds() {
-		console.log("Passing credentials...");
+		console.log("Passing credentials to next form...");
 		email = document.getElementById("email").value;
 		username = document.getElementById("username").value;
 			
@@ -147,17 +147,17 @@ try {
 		e.preventDefault();
 		var password = registerForm['password'].value;
 		var confirmPassword = registerForm['confirmPassword'].value;
-		console.log("Form submitted.");
+		console.log("Registration form submitted.");
 		
 		if(password == confirmPassword &&
 		   password.length) {
 			   
-			   console.log("Passwords match.");
+			   console.log("Your passwords match.");
 		
 			createUserWithEmailAndPassword(auth, email, password)
 			  .then((userCredential) => {
 				// Signed in 
-				console.log("Account created.");
+				console.log("Your account was created successfully.");
 				location.href = '../user/';
 			  })
 			  .catch((error) => {
@@ -179,12 +179,12 @@ catch { }
 /***************** Firestore Methods *****************/
 const querySnapshot = await getDocs(collection(db, "songs"));
 
-try {
-	querySnapshot.forEach((doc) => {
+//try {
+//	querySnapshot.forEach((doc) => {
 	  // doc.data() is never undefined for query doc snapshots
-	  console.log(doc.id, " => ", doc.data());
-	});
-}
-catch {
-	console.log("Missing or insufficient permissions.");
-}
+//	  console.log(doc.id, " => ", doc.data());
+//	});
+//}
+//catch {
+//	console.log("Missing or insufficient permissions.");
+//}
