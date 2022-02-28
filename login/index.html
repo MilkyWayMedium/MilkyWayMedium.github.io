@@ -32,7 +32,7 @@
 		
 		<!-- Right portion of navigation (page links) -->
 		<div id="navRight" class="navBarInnerRight">
-			<a style="opacity: 0.4" id="login" href="../login/">LOGIN</a>
+			<a style="opacity: 0.4" id="login" href="../login/">LOG IN</a>
 			<a id="register" href="../register">CREATE &nbsp;ACCOUNT</a>
 			<a href="../about/">ABOUT</a>
 		</div>
@@ -69,7 +69,7 @@
 				<br><br>
 				
 				<!-- Continue creating a new account button -->
-				<button id="login-button" class="button-login" style="width: 100%; height: 55px;" type="submit">LOGIN</button>
+				<button id="login-button" class="button-login" style="width: 100%; height: 55px;" onclick="login">LOG IN</button>
 				<br>
 				
 			</form>
@@ -77,83 +77,7 @@
 		</div>
 	</div>
 	
-	
-	<script type="module">
-				  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js'
-				  // Add Firebase products that you want to use
-				  import { initializeAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js'
-				  
-				  const firebaseConfig = {
-				  apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
-				  authDomain: "milkywaymedium.firebaseapp.com",
-				  databaseURL: "https://milkywaymedium.firebaseio.com",
-				  projectId: "milkywaymedium",
-				  storageBucket: "milkywaymedium.appspot.com",
-				  messagingSenderId: "165659589186",
-				  appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
-				  measurementId: "G-WGKXQT89RQ",
-				};
-
-				// Initialize Firebase
-				const app = initializeApp(firebaseConfig);
-				const auth = initializeAuth(app);
-				
-				console.log(app, auth);
-				
-				onAuthStateChanged(auth, (user) => {
-						if(user) {
-							console.log('User logged in: ', user);
-							const navRight = document.getElementById('navRight');
-							navRight.innerHTML = `<a id="logout" href=".">LOGOUT</a><a href="../about/">ABOUT</a>`;
-							// Logout
-							const logout = document.getElementById("logout");
-							logout.addEventListener('click', (e) => {
-								e.preventDefault();
-								console.log('User logged out');
-								signOut(auth).then();
-							});
-						}
-						else {
-							console.log('User not logged in');
-						}
-				});
-				
-				
-				const loginForm = document.querySelector('#login-form');
-				const loginButton = document.getElementById("login-button");
-				var identification = "";
-				var password ="";
-				
-				// Login
-				loginForm.addEventListener('submit', (e) => {
-					console.log(1);
-					e.preventDefault();
-					var identification = loginForm['identification'].value;
-					var password = loginForm['password'].value;
-					var loggedIn = false;
-					console.log(2);
-					
-					
-					signInWithEmailAndPassword(auth, identification, password).then(cred => {
-						identification = "";
-						password = "";
-						loggedIn = true;
-						console.log(3);
-						console.log(cred.user);
-						location.href = 'https://milkywaymedium.com/';
-					});
-					
-					if(loggedIn) {
-						//
-						console.log(4);
-					}
-					
-					console.log(5);
-		
-				});
-					
-			</script>
-	
+	<script src="../dist/bundle.js"></script>
 	
 </body>
 

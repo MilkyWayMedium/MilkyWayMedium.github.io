@@ -1,29 +1,34 @@
-import { initializeApp } from 'firebase/app'
+/***************** Firebase SDK Imports, Configuration, and Initialization *****************/
+import { 
+	initializeApp
+} 	from 'firebase/app';
 import {
 	getAuth, onAuthStateChanged, signInWithEmailAndPassword
-} from 'firebase/auth'
+} 	from 'firebase/auth';
 import {
 	getFirestore, collection, getDocs
-} from 'firebase/firestore'
+} 	from 'firebase/firestore';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyB4L71q-5qsAD2RbzYkPI8S66t1-gPmLlc",
   authDomain: "milkywaymedium.firebaseapp.com",
-  databaseURL: "https://milkywaymedium-default-rtdb.firebaseio.com",
+  databaseURL: "https://milkywaymedium.firebaseio.com",
   projectId: "milkywaymedium",
   storageBucket: "milkywaymedium.appspot.com",
   messagingSenderId: "165659589186",
   appId: "1:165659589186:web:14f35c3010b2e5600c0bdb",
 };
 
-// Initialize Firebase
-initializeApp(firebaseConfig);
-
 // Initialize Auth
 const auth = getAuth();
 
-onAuthStateChanged(auth, (user) => {
+// Initialize Firebase
+initializeApp(firebaseConfig);
+
+
+/***************** Firebase Auth Methods *****************/
+onAuthStateChanged(auth, (user) => {									// Check user login status
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
@@ -31,16 +36,38 @@ onAuthStateChanged(auth, (user) => {
 	console.log(user, uid);
   } else {
     // User is signed out
-    // ...
-	console.log("Not signed in. Attempting to sign in.")
-	signInWithEmailAndPassword(auth, 'garrettmhainesspam@gmail.com', 'asdfasdf').then(cred => {
-		console.log(cred.user);
-		console.log("Signed in.");
-	});
+	console.log("You are not currently signed in.")
   }
 });
 
-// Initialize Firestore
+
+function login() {
+	const loginForm = document.querySelector("#login-form");
+	const loginButton = document.getElementById("login-button");
+	var identification = "";
+	var password = "";
+	
+	identification = loginForm['identification'].value;
+	password = loginForm['password'].value;
+	var loggedIn = false;
+
+	signInWithEmailAndPassword(auth, identification, password).then(cred => {
+		identification = "";
+		password = "";
+		loggedIn = true;
+		console.log(cred.user);
+	})
+	  .catch((error) => {
+		const errorCode = error.code;
+		const errorMessage = error.message;
+	  });
+
+	if(loggedIn) {
+		location.href = 'https://milkywaymedium.com/';
+	}
+}
+
+/***************** Firestore Methods *****************/
 const db = getFirestore();
 //const colRef = collection(db, 'books')
 //getDocs(colRef)
