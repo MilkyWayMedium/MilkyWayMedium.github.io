@@ -22,10 +22,13 @@
 	<div class="navBar">
 	
 		<!-- Left portion of navigation (logo and site title) -->
-		<a href="../">
-			<img src="../components/images/animated.gif">
+		<a href="../" class="navBarInnerLeftHovering">
+			<div>
+				<img src="../components/images/animated.gif" id="navImageLogo">
+				<img src="../components/images/hover.gif" id="navImageHidden">
+			</div>
 			<div class="navBarInnerLeft"><div id="small">MIL<span style="letter-spacing: 2px;">KY</span><span style="letter-spacing: 1px;"> </span><span style="letter-spacing: -4px;">WAY</span><br></div>MEDIUM</div>
-			</a>
+		</a>
 		
 		<!-- Right portion of navigation (page links) -->
 		<div id="navRight" class="navBarInnerRight">
@@ -41,12 +44,7 @@
 	
 	<!-- Block feed -->
 	<div class="container" id="container">
-		<div class="block-content">
-	
-			<h2 class="title">WELCOME</h2>
-			<h4 class="text" style="text-align: center;">Congratulations!<br><br>Your account was created successfully.</h4>
-		
-		</div>
+		<div class="block-content" id="user-content"></div>
 	</div>
 			
 	<script src="../dist/bundle.js"></script>

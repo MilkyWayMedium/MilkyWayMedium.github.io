@@ -1,4 +1,6 @@
 /***************** Firebase SDK Imports, Configuration, and Initialization *****************/
+//
+// Modules have been bundled with Webpack
 import { 
 	initializeApp
 } 	from 'firebase/app';
@@ -32,13 +34,19 @@ const db = getFirestore();
 
 
 /***************** Auth Methods *****************/
-onAuthStateChanged(auth, (user) => {									// Check user login status
+//
+// Check user login status
+onAuthStateChanged(auth, (user) => {									
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
 	try {
+		// Update navigation bar IF on User page
+		const userContent = document.getElementById("user-content");
 		const navRight = document.getElementById("navRight");
-		navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://github.com/MilkyWayMedium/MilkyWayMedium.github.io/releases">ABOUT</a>`;
+		navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://github.com/MilkyWayMedium/MilkyWayMedium.github.io/releases">ABOUT</a><a href="https://milkywaymedium.com/user" style="opacity:.5">MY ACCOUNT</a>`;
+		
+		userContent.innerHTML = `<h2 class="title">MY ACCOUNT</h2><h4 class="text">You are currently signed in.<br>Medium is currently studying the position of the stars. Please check back later for additional features.</h4>`;
 		
 		const logout = document.getElementById("logout");
 		logout.addEventListener('click', (e) => {
@@ -52,14 +60,33 @@ onAuthStateChanged(auth, (user) => {									// Check user login status
 		const uid = user.uid;
 		console.log(user, uid);
 	}
-	catch { }
+	catch {
+		try {
+			// Update navigation bar ELSE
+			const navRight = document.getElementById("navRight");
+			navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://github.com/MilkyWayMedium/MilkyWayMedium.github.io/releases">ABOUT</a><a href="https://milkywaymedium.com/user">MY ACCOUNT</a>`;
+			
+			const logout = document.getElementById("logout");
+			logout.addEventListener('click', (e) => {
+				e.preventDefault();
+				signOut(auth).then(() => {
+					console.log('You have signed out.');
+					navRight.innerHTML = `<a href="https://milkywaymedium.com/login/">LOG IN</a><a href="https://milkywaymedium.com/register/">CREATE &nbsp;ACCOUNT</a><a href="about/">ABOUT</a>`;
+				});
+			});
+			
+			const uid = user.uid;
+			console.log(user, uid);
+		}
+		catch { }
+	}
   } else {
     // User is signed out
 	console.log("You are not currently signed in.")
   }
 });
 
-
+// Login page auth methods
 try {
   	const loginForm = document.querySelector("#login-form");
 	const loginButton = document.getElementById("login-button");
@@ -91,6 +118,7 @@ try {
 }
 catch { }
 
+// Registration page auth methods
 try {
 	const registerForm = document.querySelector('#register-form');
 	const continueButton = document.getElementById("continueButton");
@@ -174,6 +202,7 @@ try {
 	});
 }
 catch { }
+
 
 
 /***************** Firestore Methods *****************/
