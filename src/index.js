@@ -47,6 +47,7 @@ onAuthStateChanged(auth, (user) => {									// Check user login status
 			e.preventDefault();
 			signOut(auth).then(() => {
 				console.log('You have signed out.');
+				navRight.innerHTML = `<a href="login/">LOG IN</a><a href="register/">CREATE &nbsp;ACCOUNT</a><a href="about/">ABOUT</a>`;
 			});
 		});
 	}
