@@ -38,7 +38,7 @@ onAuthStateChanged(auth, (user) => {									// Check user login status
     // https://firebase.google.com/docs/reference/js/firebase.User
 	try {
 		const navRight = document.getElementById("navRight");
-		navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
+		navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="https://github.com/MilkyWayMedium/MilkyWayMedium.github.io/releases">ABOUT</a>`;
 		
 		const logout = document.getElementById("logout");
 		logout.addEventListener('click', (e) => {
@@ -143,7 +143,7 @@ try {
 	});
 
 	registerForm.addEventListener('submit', (e) => {
-		// Create account
+		// Create an account
 		e.preventDefault();
 		var password = registerForm['password'].value;
 		var confirmPassword = registerForm['confirmPassword'].value;
