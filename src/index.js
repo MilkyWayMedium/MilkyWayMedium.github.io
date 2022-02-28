@@ -147,13 +147,17 @@ try {
 		e.preventDefault();
 		var password = registerForm['password'].value;
 		var confirmPassword = registerForm['confirmPassword'].value;
+		console.log("Form submitted.");
 		
 		if(password == confirmPassword &&
 		   password.length) {
+			   
+			   console.log("Passwords match.");
 		
 			createUserWithEmailAndPassword(auth, email, password)
 			  .then((userCredential) => {
 				// Signed in 
+				console.log("Account created.");
 				const user = userCredential.user;
 				const navRight = document.getElementById("navRight");
 				navRight.innerHTML = `<a id="logout" href=".">LOG OUT</a><a href="../about/">ABOUT</a>`;
