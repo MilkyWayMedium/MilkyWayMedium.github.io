@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import {
-	getAuth
+	getAuth, signInWithEmailAndPassword
 } from 'firebase/auth'
 import {
 	getFirestore, collection, getDocs
