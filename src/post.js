@@ -12,7 +12,7 @@ function displayContent() {
 	postElement.innerHTML = `
 		<iframe id="ytplayer" type="text/html" width="540" height="303.75" style="border-radius: 5px;"
 					src="https://www.youtube.com/embed/` + randomVideo +`?autoplay=1&mute=1&fs=0&loop=1&modestbranding=1&showinfo=0&autohide=1&playsinline=1&color=white&iv_load_policy=3"
-					frameborder="0" allowfullscreen></iframe>
+					frameborder="0" allowfullscreen data-autoplay data-keepplaying></iframe>
 		<p class="text" style="margin-bottom: -5px; text-align: center;">
 				Set the vibe in a flash. This site is currently under construction.
 				<br>
