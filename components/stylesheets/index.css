@@ -238,7 +238,7 @@ a:visited {
 	box-shadow: 0px 3px 24px 5px rgba(0,0,0,0.1);
 	border-radius: 4px;
 	padding: 30px 30px 30px 30px;
-	margin: 100px 0;
+	margin: 90px 0;
     animation: fadein .75s;
     -moz-animation: fadein .75s; /* Firefox */
     -webkit-animation: fadein .75s; /* Safari and Chrome */

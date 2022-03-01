@@ -7,16 +7,12 @@ function displayContent() {
 	postElement.classList.add('block-content');
 	
 	postElement.innerHTML = `
-		<p class="text">
-				<iframe id="ytplayer" type="text/html" width="540" height="303.75"
-					src="https://www.youtube.com/embed/hXaPGlkd5do?autoplay=1&fs=0&loop=1&modestbranding=1&playsinline=1&color=white&iv_load_policy=3"
-					frameborder="0" allowfullscreen />
-				
-				Set the vibe in a flash.
-				<br><br>
-				This site is currently under construction.
-				<br><br>
-				
+		<iframe id="ytplayer" type="text/html" width="540" height="303.75"
+					src="https://www.youtube.com/embed/hXaPGlkd5do?autoplay=1&mute=1&fs=0&loop=1&modestbranding=1&playsinline=1&color=white&iv_load_policy=3"
+					frameborder="0" allowfullscreen></iframe>
+		<p class="text" style="margin-bottom: -5px; text-align: center;">
+				Set the vibe in a flash. This site is currently under construction.
+				<br>
 				Created by Hunter Cook and Garrett Haines.
 		</p>
 		
