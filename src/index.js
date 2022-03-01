@@ -186,6 +186,8 @@ try {
 			createUserWithEmailAndPassword(auth, email, password)
 			  .then((userCredential) => {
 				// Signed in 
+				const profileUpdates = new UserProfileChangeRequest.Builder();
+				profileUpdates.setDisplayName(username);
 				console.log("Your account was created successfully.");
 				location.href = '../user/';
 			  })
