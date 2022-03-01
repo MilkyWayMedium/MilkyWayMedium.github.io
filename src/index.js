@@ -5,7 +5,7 @@ import {
 	initializeApp
 } 	from 'firebase/app';
 import {
-	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
+	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, UserProfileChangeRequest, setDisplayName
 } 	from 'firebase/auth';
 import {
 	getFirestore, collection, getDocs, query, where
