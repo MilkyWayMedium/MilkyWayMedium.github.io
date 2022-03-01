@@ -5,7 +5,7 @@ import {
 	initializeApp
 } 	from 'firebase/app';
 import {
-	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, UserProfileChangeRequest, setDisplayName, build
+	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
 } 	from 'firebase/auth';
 import {
 	getFirestore, collection, getDocs, query, where
@@ -186,7 +186,6 @@ try {
 			createUserWithEmailAndPassword(auth, email, password)
 			  .then((userCredential) => {
 				// Signed in 
-				const profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(username).build();
 				console.log("Your account was created successfully.");
 				location.href = '../user/';
 			  })
