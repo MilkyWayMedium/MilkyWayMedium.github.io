@@ -5,7 +5,7 @@ displayContent();
 function displayContent() {
 	const postElement = document.createElement('div');
 	postElement.classList.add('block-content');
-	const videos = ["Aki1Xn36eJ8", "hXaPGlkd5do", "niG3YMU6jFk", "wycjnCCgUes", "2EIeUlvHAiM"];
+	const videos = ["Aki1Xn36eJ8", "hXaPGlkd5do", "niG3YMU6jFk", "wycjnCCgUes", "2EIeUlvHAiM", "hXaPGlkd5do"];
 	var randomVideo = videos[Math.floor(Math.random()*videos.length)];
 	console.log(randomVideo);
 	
