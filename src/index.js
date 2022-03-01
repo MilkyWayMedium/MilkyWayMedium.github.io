@@ -187,6 +187,7 @@ try {
 			  .then((userCredential) => {
 				// Signed in 
 				const profileUpdates = new UserProfileChangeRequest.Builder();
+				console.log("profileUpdates created and setting display name.");
 				profileUpdates.setDisplayName(username);
 				console.log("Your account was created successfully.");
 				location.href = '../user/';
