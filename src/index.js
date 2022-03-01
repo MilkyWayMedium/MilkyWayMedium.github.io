@@ -1,11 +1,11 @@
 /****************** Firebase SDK Imports, Configuration, and Initialization ******************/
 //
-// Modules have been bundled with Webpack
+// Modules have been bundled in Webpack
 import { 
 	initializeApp
 } 	from 'firebase/app';
 import {
-	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, UserProfileChangeRequest, setDisplayName
+	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, UserProfileChangeRequest, setDisplayName, build
 } 	from 'firebase/auth';
 import {
 	getFirestore, collection, getDocs, query, where
@@ -186,9 +186,7 @@ try {
 			createUserWithEmailAndPassword(auth, email, password)
 			  .then((userCredential) => {
 				// Signed in 
-				const profileUpdates = new UserProfileChangeRequest.Builder();
-				console.log("profileUpdates created and setting display name.");
-				profileUpdates.setDisplayName(username);
+				const profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(username).build();
 				console.log("Your account was created successfully.");
 				location.href = '../user/';
 			  })
