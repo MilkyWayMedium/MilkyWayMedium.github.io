@@ -8,7 +8,7 @@ import {
 	createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
 } 	from 'firebase/auth';
 import {
-	getFirestore, collection, getDocs, query, where
+	getFirestore, collection, getDocs
 } 	from 'firebase/firestore';
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -25,11 +25,19 @@ const firebaseConfig = {
 // Initialize Firebase App
 initializeApp(firebaseConfig);
 
+// Initialize Firebase Firestore
+const db = getFirestore();
+const colRef = collection(db, 'songs');
+
 // Initialize Firebase Auth
 const auth = getAuth();
 
-// Initialize Firebase Firestore
-const db = getFirestore();
+
+
+getDocs(colRef)
+	.then((snapshot) => {
+		console.log(snapshot.docs);
+})
 
 
 
