@@ -1,5 +1,5 @@
-var express = require('express')
-var cors = require('cors')
+var express = import('express')
+var cors = import('cors')
 var expressApp = express()
  
 var corsOptions = {
