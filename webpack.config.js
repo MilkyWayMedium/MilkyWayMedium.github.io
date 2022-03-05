@@ -8,7 +8,19 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	watch: true,
+	target: "node",
+    externals: {
+        "express": "require('express')"
+    },
 	experiments: {
 		topLevelAwait: true
-	}
+	},
+	resolve: {
+        fallback: { "path": require.resolve("path-browserify"),
+					"stream": false,
+					"crypto": false,
+					"http": false,
+					"zlib": false
+		}
+    }
 }

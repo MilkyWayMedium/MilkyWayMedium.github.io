@@ -1,3 +1,22 @@
+var express = require('express')
+var cors = require('cors')
+var expressApp = express()
+ 
+var corsOptions = {
+  origin: 'https://milkywaymedium.com',
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+ 
+expressApp.get('/products/:id', cors(corsOptions), function (req, res, next) {
+  res.json({msg: 'CORS enabled on Milky Way Medium site.'})
+})
+ 
+expressApp.listen(80, function () {
+  console.log('CORS-enabled web server listening on port 80.')
+})
+
+
 /****************** Firebase SDK Imports, Configuration, and Initialization ******************/
 //
 // Modules have been bundled in Webpack
