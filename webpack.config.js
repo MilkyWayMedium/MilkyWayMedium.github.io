@@ -8,9 +8,9 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	watch: true,
-	target: "node",
+	target: "web",
     externals: {
-        "express": "require('express')"
+        "express": "require('express')",
     },
 	experiments: {
 		topLevelAwait: true
