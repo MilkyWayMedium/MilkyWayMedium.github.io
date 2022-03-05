@@ -1,0 +1,22 @@
+{
+  "name": "permissions",
+  "version": "0.1.0",
+  "description": "A package to help people make custom permissions, roles and users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "permission",
+    "roles",
+    "permissions",
+    "management",
+    "users"
+  ],
+  "author": "danielnewell",
+  "license": "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "\u0016https://github.com/danielnewell/permissions.git"
+  }
+}
