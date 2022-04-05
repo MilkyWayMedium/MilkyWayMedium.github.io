@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Milky Way Medium</title>
+{% endblock %}
+
+{% block body %}
+<!-- Navigation bar -->
+<div class="navBar">
+
+	<!-- Left portion of navigation (logo and site title) -->
+	<a href="." class="navBarInnerLeftHovering">
+		<div>
+			<img id="navImageLogo" src="{{ url_for('static', filename='images/animated.gif') }}" />
+			<img src="{{ url_for('static', filename='images/hover.gif') }}" id="navImageHidden">
+		</div>
+		<div class="navBarInnerLeft">
+			<div id="small">MIL<span style="letter-spacing: 2px;">KY</span><span style="letter-spacing: 1px;">
+				</span><span style="letter-spacing: -4px;">WAY</span><br></div>MEDIUM
+		</div>
+	</a>
+
+	<!-- Right portion of navigation (page links) -->
+	<div id="navRight" class="navBarInnerRight">
+		<a href="login/">LOG IN</a>
+		<a href="register/">CREATE &nbsp;ACCOUNT</a>
+		<a href="https://github.com/MilkyWayMedium/MilkyWayMedium.github.io/releases">ABOUT</a>
+	</div>
+
+</div>
+<br><br><br><br><br><br>
+
+
+
+<!-- Block feed -->
+<div class="block-content">
+<div class="container" id="container">
+	<iframe id="ytplayer" src="https://www.youtube.com/embed/hXaPGlkd5do?autoplay=1&mute=1&fs=0&loop=1&modestbranding=1&showinfo=0&autohide=1&playsinline=1&color=white&iv_load_policy=3" type="text/html" width="560" height="314.5982" style="border-radius: 5px;" frameborder="0" allowfullscreen data-autoplay data-keepplaying></iframe>
+	<p class="text" style="margin-bottom: -5px; text-align: center;">
+		Set the vibe in a flash. This site is currently under construction.
+		<br>
+		Created by Hunter Cook and Garrett Haines.
+	</p>
+	
+	<div class="content">
+		<h1 style="text-align: center">Hot Tunes</h1>
+		{% if tasks|length < 1 %} <p style="text-align: center">There are no songs. Create one below!</p>
+			{% else %}
+			<table>
+				<tr>
+					<th>Song</th>
+					<th>Added</th>
+					<th>Actions</th>
+				</tr>
+				{% for task in tasks %}
+				<tr>
+					<td>{{ task.content }}</td>
+					<td>{{ task.date_created.date() }}</td>
+					<td>
+						<a href="/delete/{{task.id}}" style="font-size: 16px;">Delete</a>&nbsp;
+						<a href="/update/{{task.id}}" style="font-size: 16px;">Update</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endif %}
+			<br>
+			<div class="form" style="text-align: center">
+				<form action="/" method="POST">
+					<input type="text" name="content" id="content">
+					<input type="submit" style="padding: 10px; font-size: 14px;" value="Add Song">
+				</form>
+			</div>
+	</div>
+	<script src="{{ url_for('static', filename='post.js') }}"></script>
+</div></div>
+	
+{% endblock %}

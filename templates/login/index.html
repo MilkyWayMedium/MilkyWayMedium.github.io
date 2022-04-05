@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Milky Way Medium - Login</title>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<!-- Base stylesheet for all pages -->
+	<link rel="stylesheet" type="text/css" href="../components/stylesheets/index.css" />
+	<link rel="stylesheet" href="../components/stylesheets/checkboxes.css"/>
+	
+	<!-- Site logo browser icon (.ico) -->
+	<link rel="icon" href="../components/images/favicon.ico">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+</head>
+
+
+
+<body>
+	<!-- Navigation bar -->
+	<div class="navBar">
+	
+		<!-- Left portion of navigation (logo and site title) -->
+		<a href="../" class="navBarInnerLeftHovering">
+			<div>
+				<img src="../components/images/animated.gif" id="navImageLogo">
+				<img src="../components/images/hover.gif" id="navImageHidden">
+			</div>
+			<div class="navBarInnerLeft"><div id="small">MIL<span style="letter-spacing: 2px;">KY</span><span style="letter-spacing: 1px;"> </span><span style="letter-spacing: -4px;">WAY</span><br></div>MEDIUM</div>
+		</a>
+		
+		<!-- Right portion of navigation (page links) -->
+		<div id="navRight" class="navBarInnerRight">
+			<a style="opacity: 0.4" id="login" href="../login/">LOG IN</a>
+			<a id="register" href="../register">CREATE &nbsp;ACCOUNT</a>
+			<a href="https://github.com/MilkyWayMedium/MilkyWayMedium.github.io/releases">ABOUT</a>
+		</div>
+		
+	</div>
+	<br><br><br><br><br><br>
+	
+	
+	<!-- Block feed -->
+	<div class="container" id="container">
+		<div class="block-content">
+			
+			<form id="login-form" method="post">
+
+				<!-- Username section -->
+				<label for="uname"><b style="color: #020011; font-size: 17px;">Email or Username</b></label>
+				<input type="text" placeholder="Enter your email or username..." name="identification" required>
+				<br><br>
+
+				<!-- Email address section -->
+				<label for="email"><b style="color: #020011; font-size: 17px;">Password</b></label>
+				<input type="password" placeholder="Enter your password..." name="password" required>
+				<br><br>
+				
+				<div style="width: 100%; display: inline-block; float: right;">
+					<span style="float: left;">
+						<input type="checkbox" id="checkbox2" class="css-checkbox" />
+						<label for="checkbox2" name="checkbox2_lbl" class="css-label chrome-style" style="color: #020011; margin-top: -4px;">Remember Me</label>
+					</span>
+					<span style="float: right; margin-top: -3px;">
+						<a style="font-size: 15px; color: #B79500;" href="forgot/">I forgot my login information...</a>
+					</span>
+				</div>
+				<br><br>
+				
+				<!-- Continue creating a new account button -->
+				<button id="login-button" class="button-login" style="width: 100%; height: 55px;" type="submit">LOG IN</button>
+				<br>
+				
+			</form>
+			
+			<script src="../dist/bundle.js"></script>
+			
+		</div>
+	</div>
+	
+</body>
+
+</html>
+
+
